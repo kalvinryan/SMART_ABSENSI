@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Android_Project/SMART_ABSENSI/app/src/main/res/drawable/background_jam.xml" value="0.13541666666666666" />
+        <entry key="..\:/Android_Project/SMART_ABSENSI/app/src/main/res/layout/activity_izin.xml" value="0.2" />
+        <entry key="..\:/Android_Project/SMART_ABSENSI/app/src/main/res/layout/activity_login_absen.xml" value="0.2" />
+        <entry key="..\:/Android_Project/SMART_ABSENSI/app/src/main/res/layout/activity_main.xml" value="0.37384140061791965" />
+        <entry key="..\:/Android_Project/SMART_ABSENSI/app/src/main/res/layout/activity_riwayat.xml" value="0.2" />
+        <entry key="..\:/Android_Project/SMART_ABSENSI/app/src/main/res/layout/activity_splash_absen.xml" value="0.2" />
+        <entry key="..\:/Android_Project/SMART_ABSENSI/app/src/main/res/layout/activity_splash_check_out.xml" value="0.41271676300578036" />
+        <entry key="..\:/Android_Project/SMART_ABSENSI/app/src/main/res/menu/menu.xml" value="1.2964285714285715" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

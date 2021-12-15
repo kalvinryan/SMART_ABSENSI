@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SMART_ABSENSI</string>
+    <string-array name="tombol_sisi">
+        <item>Pengaturan</item>
+        <item>LogOut</item>
+    </string-array>
+</resources>
