@@ -3,14 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Android_Project/SMART_ABSENSI/app/src/main/res/drawable/background_jam.xml" value="0.13541666666666666" />
-        <entry key="..\:/Android_Project/SMART_ABSENSI/app/src/main/res/layout/activity_izin.xml" value="0.2" />
-        <entry key="..\:/Android_Project/SMART_ABSENSI/app/src/main/res/layout/activity_login_absen.xml" value="0.2" />
-        <entry key="..\:/Android_Project/SMART_ABSENSI/app/src/main/res/layout/activity_main.xml" value="0.37384140061791965" />
-        <entry key="..\:/Android_Project/SMART_ABSENSI/app/src/main/res/layout/activity_riwayat.xml" value="0.2" />
-        <entry key="..\:/Android_Project/SMART_ABSENSI/app/src/main/res/layout/activity_splash_absen.xml" value="0.2" />
-        <entry key="..\:/Android_Project/SMART_ABSENSI/app/src/main/res/layout/activity_splash_check_out.xml" value="0.41271676300578036" />
-        <entry key="..\:/Android_Project/SMART_ABSENSI/app/src/main/res/menu/menu.xml" value="1.2964285714285715" />
+        <entry key="..\:/Android_Project/SMART_ABSENSI/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Android_Project/SMART_ABSENSI/app/src/main/res/layout/activity_splash_absen.xml" value="0.22" />
       </map>
     </option>
   </component>
