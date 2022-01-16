@@ -68,8 +68,8 @@ public class LoginAbsen extends AppCompatActivity implements View.OnClickListene
                     startActivity(intent);
                     finish();
                 }else{
-                    Toast.makeText(LoginAbsen.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
-//                    Toast.makeText(LoginAbsen.this, "Login Gagal", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(LoginAbsen.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginAbsen.this, "NIP dan Password salah", Toast.LENGTH_SHORT).show();
                 }
             }
 
