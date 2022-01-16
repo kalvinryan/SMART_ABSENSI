@@ -4,6 +4,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class AbsenData {
 
+	@SerializedName("id")
+	private int idAbsen;
+
 	@SerializedName("keterangan")
 	private String keterangan;
 
@@ -19,11 +22,34 @@ public class AbsenData {
 	@SerializedName("jabatan")
 	private String jabatan;
 
-	@SerializedName("jam")
-	private String jam;
+	@SerializedName("latitude")
+	private String latitude;
+
+	@SerializedName("longitude")
+	private String longitude;
+
+	@SerializedName("jamMasuk")
+	private String jamMasuk;
+
+	@SerializedName("jamKeluar")
+	private String jamKeluar;
 
 	@SerializedName("tanggal")
 	private String tanggal;
+
+	@SerializedName("image")
+	private String image;
+
+	@SerializedName("tpp")
+	private String myTpp;
+
+	public int getIdAbsen() {
+		return idAbsen;
+	}
+
+	public void setIdAbsen(int idAbsen) {
+		this.idAbsen = idAbsen;
+	}
 
 	public void setKeterangan(String keterangan){
 		this.keterangan = keterangan;
@@ -65,12 +91,20 @@ public class AbsenData {
 		return jabatan;
 	}
 
-	public void setJam(String jam){
-		this.jam = jam;
+	public String getJamMasuk() {
+		return jamMasuk;
 	}
 
-	public String getJam(){
-		return jam;
+	public void setJamMasuk(String jamMasuk) {
+		this.jamMasuk = jamMasuk;
+	}
+
+	public String getJamKeluar() {
+		return jamKeluar;
+	}
+
+	public void setJamKeluar(String jamKeluar) {
+		this.jamKeluar = jamKeluar;
 	}
 
 	public void setTanggal(String tanggal){
@@ -79,5 +113,37 @@ public class AbsenData {
 
 	public String getTanggal(){
 		return tanggal;
+	}
+
+	public String getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
+	}
+
+	public String getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(String longitude) {
+		this.longitude = longitude;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public String getMyTpp() {
+		return myTpp;
+	}
+
+	public void setMyTpp(String myTpp) {
+		this.myTpp = myTpp;
 	}
 }

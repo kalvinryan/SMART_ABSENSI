@@ -11,7 +11,7 @@
         android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/btn_SplashCheckOut"
+            android:id="@+id/btn_BackHomeOut"
             android:layout_width="187dp"
             android:layout_height="54dp"
             android:layout_marginTop="10dp"

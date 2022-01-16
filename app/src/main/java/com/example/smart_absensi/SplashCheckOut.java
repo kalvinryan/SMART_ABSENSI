@@ -13,9 +13,9 @@ public class SplashCheckOut extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash_check_out);
+        setContentView(R.layout.activity_splash_checkout);
 
-        btn_SplashCheckOut=findViewById(R.id.btn_SplashCheckOut);
+        btn_SplashCheckOut=findViewById(R.id.btn_BackHomeOut);
 
         btn_SplashCheckOut.setOnClickListener(new View.OnClickListener() {
             @Override

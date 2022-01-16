@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">SMART_ABSENSI</string>
-<!--    <string-array name="tombol_sisi">-->
-<!--        <item>Pengaturan</item>-->
-<!--        <item>LogOut</item>-->
-<!--    </string-array>-->
+    <!--    <string-array name="tombol_sisi">-->
+    <!--        <item>Pengaturan</item>-->
+    <!--        <item>LogOut</item>-->
+    <!--    </string-array>-->
     <string name="Api_key">
         AIzaSyAGfl8yAhswTqWlMDa-i15XngZCqpiEOMo
     </string>

@@ -19,6 +19,7 @@ public class SessionManager {
     public static final String Nama = "nama";
     public static final String Jabatan = "jabatan";
     public static final String Ruangan = "ruangan";
+    public static final String Password = "password";
     public static final String Tpp = "tpp";
 
     public SessionManager (Context context){
@@ -34,6 +35,7 @@ public class SessionManager {
         editor.putString(Nama, user.getNama());
         editor.putString(Jabatan, user.getJabatan());
         editor.putString(Ruangan, user.getRuangan());
+        editor.putString(Password, user.getPassword());
         editor.putString(Tpp, user.getTpp());
 
         editor.commit();
@@ -46,6 +48,7 @@ public class SessionManager {
         user.put(Nama,sharedPreferences.getString(Nama,null));
         user.put(Jabatan,sharedPreferences.getString(Jabatan,null));
         user.put(Ruangan,sharedPreferences.getString(Ruangan,null));
+        user.put(Password,sharedPreferences.getString(Password,null));
         user.put(Tpp,sharedPreferences.getString(Tpp,null));
         return user;
     }

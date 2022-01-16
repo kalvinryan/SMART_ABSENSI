@@ -2,10 +2,15 @@ package com.example.smart_absensi.Model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class Absen{
 
 	@SerializedName("data")
 	private AbsenData absenData;
+
+	@SerializedName("dataku")
+	private List<AbsenData>absenDataku;
 
 	@SerializedName("message")
 	private String message;
@@ -24,6 +29,9 @@ public class Absen{
 
 	@SerializedName("alfa")
 	private String alfa;
+
+	@SerializedName("terlambat")
+	private String terlambat;
 
 	public void setData(AbsenData absenData){
 		this.absenData = absenData;
@@ -79,5 +87,29 @@ public class Absen{
 
 	public void setAlfa(String alfa) {
 		this.alfa = alfa;
+	}
+
+	public List<AbsenData> getAbsenDataku() {
+		return absenDataku;
+	}
+
+	public void setAbsenDataku(List<AbsenData> absenDataku) {
+		this.absenDataku = absenDataku;
+	}
+
+	public AbsenData getAbsenData() {
+		return absenData;
+	}
+
+	public void setAbsenData(AbsenData absenData) {
+		this.absenData = absenData;
+	}
+
+	public String getTerlambat() {
+		return terlambat;
+	}
+
+	public void setTerlambat(String terlambat) {
+		this.terlambat = terlambat;
 	}
 }

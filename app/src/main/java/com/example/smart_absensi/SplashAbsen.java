@@ -10,17 +10,23 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.location.Location;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.GeoPoint;
 
 
 public class SplashAbsen extends AppCompatActivity implements OnMapReadyCallback {
@@ -31,14 +37,17 @@ public class SplashAbsen extends AppCompatActivity implements OnMapReadyCallback
     private static final String MAPVIEW_BUNDLE_KEY = "MapViewBundleKey";
     int GEOFENCE_RADIUS = 20;
     int FINE_LOCATION_ACCESS_REQUEST_CODE = 10001;
+    private FusedLocationProviderClient fusedLocationProviderClient;
 //    private ActivityMapsBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_absen);
-        btn_dashboardHome = findViewById(R.id.btn_SplashCheckOut);
 
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+
+        btn_dashboardHome = findViewById(R.id.btn_BackAbsen);
         btn_dashboardHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,10 +72,43 @@ public class SplashAbsen extends AppCompatActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
         nMap = googleMap;
-        LatLng MyLocation = new LatLng(-2.957500,  119.923593);
+//        LatLng MyLocation = new LatLng(-2.957500,  119.923593);
+//        nMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+//        nMap.addMarker(new MarkerOptions().position(MyLocation).title("Marker"));
+//        nMap.moveCamera(CameraUpdateFactory.newLatLngZoom(MyLocation,20));
 
-        nMap.addMarker(new MarkerOptions().position(MyLocation).title("Marker"));
-        nMap.moveCamera(CameraUpdateFactory.newLatLngZoom(MyLocation,20));
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        fusedLocationProviderClient.getLastLocation().addOnCompleteListener(new OnCompleteListener<Location>() {
+            @Override
+            public void onComplete(@NonNull Task<Location> task) {
+                if (task.isSuccessful()) {
+                    Location location = task.getResult();
+                    if (location != null) {
+                        GeoPoint geoPoint = new GeoPoint(location.getLatitude(), location.getLongitude());
+                        LatLng sydney = new LatLng(geoPoint.getLatitude(),geoPoint.getLongitude());
+                        nMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+                        nMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+                        nMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+
+                        String Latlang = "Latitude " + geoPoint.getLatitude() + "| Longitude " + geoPoint.getLatitude();
+
+                        Toast.makeText(SplashAbsen.this, Latlang, Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(SplashAbsen.this, "Location Is Null", Toast.LENGTH_SHORT).show();
+
+                    }
+                }
+            }
+        });
 
         myGeofence();
         enabeledUserLocation();

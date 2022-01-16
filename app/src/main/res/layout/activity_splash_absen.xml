@@ -13,7 +13,7 @@
         tools:layout_editor_absoluteY="-53dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/btn_SplashCheckOut"
+            android:id="@+id/btn_BackAbsen"
             android:layout_width="187dp"
             android:layout_height="54dp"
             android:layout_marginTop="10dp"
@@ -36,8 +36,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout5"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
+            android:layout_width="350dp"
+            android:layout_height="400dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.568"
