@@ -18,7 +18,7 @@ public class GeofenceBroadcastReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         // TODO: This method is called when the BroadcastReceiver is receiving
         // an Intent broadcast.
-        Toast.makeText(context, "Geofence Tigread...", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(context, "Geofence Tigread...", Toast.LENGTH_SHORT).show();
 
         GeofencingEvent geofencingEvent = GeofencingEvent.fromIntent(intent);
 
@@ -36,13 +36,13 @@ public class GeofenceBroadcastReceiver extends BroadcastReceiver {
 
         switch (TransType){
             case Geofence.GEOFENCE_TRANSITION_ENTER:
-                Toast.makeText(context, "GEOFENCE_TRANSITION_ENTER", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Silahkan Untuk melakukan absen", Toast.LENGTH_SHORT).show();
                 break;
             case Geofence.GEOFENCE_TRANSITION_DWELL:
-                Toast.makeText(context, "GEOFENCE_TRANSITION_DWELL", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(context, "GEOFENCE_TRANSITION_DWELL", Toast.LENGTH_SHORT).show();
                 break;
             case Geofence.GEOFENCE_TRANSITION_EXIT:
-                Toast.makeText(context, "GEOFENCE_TRANSITION_EXIT", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(context, "Anda Keluar Dari Titik Kordinat Yang ditentukan", Toast.LENGTH_SHORT).show();
                 break;
 
         }

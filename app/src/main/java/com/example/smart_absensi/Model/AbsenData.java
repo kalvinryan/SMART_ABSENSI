@@ -40,8 +40,14 @@ public class AbsenData {
 	@SerializedName("image")
 	private String image;
 
+	@SerializedName("image2")
+	private String image2;
+
 	@SerializedName("tpp")
 	private String myTpp;
+
+	@SerializedName("sts_tanggal")
+	private String sts_tanggal;
 
 	public int getIdAbsen() {
 		return idAbsen;
@@ -139,11 +145,27 @@ public class AbsenData {
 		this.image = image;
 	}
 
+	public String getImage2() {
+		return image2;
+	}
+
+	public void setImage2(String image2) {
+		this.image2 = image2;
+	}
+
 	public String getMyTpp() {
 		return myTpp;
 	}
 
 	public void setMyTpp(String myTpp) {
 		this.myTpp = myTpp;
+	}
+
+	public String getSts_tanggal() {
+		return sts_tanggal;
+	}
+
+	public void setSts_tanggal(String sts_tanggal) {
+		this.sts_tanggal = sts_tanggal;
 	}
 }

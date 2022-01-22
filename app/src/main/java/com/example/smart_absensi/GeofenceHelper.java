@@ -31,7 +31,7 @@ public class GeofenceHelper extends ContextWrapper {
                 .setCircularRegion(latLng.latitude,latLng.longitude,radius)
                 .setRequestId(ID)
                 .setTransitionTypes(transitionTypes)
-                .setLoiteringDelay(5000)
+                .setLoiteringDelay(10000)
                 .setExpirationDuration(Geofence.NEVER_EXPIRE)
                 .build();
     }

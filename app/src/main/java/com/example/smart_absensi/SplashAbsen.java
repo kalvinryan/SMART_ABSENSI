@@ -72,10 +72,6 @@ public class SplashAbsen extends AppCompatActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
         nMap = googleMap;
-//        LatLng MyLocation = new LatLng(-2.957500,  119.923593);
-//        nMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-//        nMap.addMarker(new MarkerOptions().position(MyLocation).title("Marker"));
-//        nMap.moveCamera(CameraUpdateFactory.newLatLngZoom(MyLocation,20));
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
@@ -97,7 +93,7 @@ public class SplashAbsen extends AppCompatActivity implements OnMapReadyCallback
                         LatLng sydney = new LatLng(geoPoint.getLatitude(),geoPoint.getLongitude());
                         nMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
                         nMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-                        nMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+                        nMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney,20));
 
                         String Latlang = "Latitude " + geoPoint.getLatitude() + "| Longitude " + geoPoint.getLatitude();
 
@@ -116,7 +112,7 @@ public class SplashAbsen extends AppCompatActivity implements OnMapReadyCallback
     }
 
     private void myGeofence(){
-        LatLng latLng = new LatLng(-2.957500,119.923593);
+        LatLng latLng = new LatLng(-2.957739046132328, 119.92355423779769);
         addMarker(latLng);
         addCircle(latLng,GEOFENCE_RADIUS);
 

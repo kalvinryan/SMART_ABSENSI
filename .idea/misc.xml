@@ -9,16 +9,18 @@
         <entry key="..\:/Android_Project/SMART_ABSENSI/app/src/main/res/drawable/background_login.xml" value="0.21614583333333334" />
         <entry key="..\:/Android_Project/SMART_ABSENSI/app/src/main/res/drawable/ic_baseline_access_time_filled_24.xml" value="0.21614583333333334" />
         <entry key="..\:/Android_Project/SMART_ABSENSI/app/src/main/res/drawable/ic_baseline_schedule_24.xml" value="0.21614583333333334" />
+        <entry key="..\:/Android_Project/SMART_ABSENSI/app/src/main/res/layout/activity_chck_out_now.xml" value="0.22" />
         <entry key="..\:/Android_Project/SMART_ABSENSI/app/src/main/res/layout/activity_check_in_now.xml" value="0.22" />
         <entry key="..\:/Android_Project/SMART_ABSENSI/app/src/main/res/layout/activity_check_in_terlambat.xml" value="0.2" />
         <entry key="..\:/Android_Project/SMART_ABSENSI/app/src/main/res/layout/activity_izin.xml" value="0.4" />
         <entry key="..\:/Android_Project/SMART_ABSENSI/app/src/main/res/layout/activity_login_absen.xml" value="0.33" />
-        <entry key="..\:/Android_Project/SMART_ABSENSI/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Android_Project/SMART_ABSENSI/app/src/main/res/layout/activity_main.xml" value="0.29067930489731436" />
         <entry key="..\:/Android_Project/SMART_ABSENSI/app/src/main/res/layout/activity_riwayat.xml" value="0.19783616692426584" />
         <entry key="..\:/Android_Project/SMART_ABSENSI/app/src/main/res/layout/activity_riwayat_sekda.xml" value="0.2" />
         <entry key="..\:/Android_Project/SMART_ABSENSI/app/src/main/res/layout/activity_settings.xml" value="0.25" />
         <entry key="..\:/Android_Project/SMART_ABSENSI/app/src/main/res/layout/activity_splash_absen.xml" value="0.22" />
         <entry key="..\:/Android_Project/SMART_ABSENSI/app/src/main/res/layout/activity_splash_check_out.xml" value="0.2" />
+        <entry key="..\:/Android_Project/SMART_ABSENSI/app/src/main/res/layout/activity_splash_checkout.xml" value="0.2" />
         <entry key="..\:/Android_Project/SMART_ABSENSI/app/src/main/res/layout/activity_tampil_riwayat.xml" value="0.25" />
         <entry key="..\:/Android_Project/SMART_ABSENSI/app/src/main/res/layout/riwayat_item.xml" value="0.25" />
       </map>

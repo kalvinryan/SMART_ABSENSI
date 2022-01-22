@@ -23,97 +23,6 @@
                 android:background="#EDEDED">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    app:layout_constraintEnd_toEndOf="@+id/constraintLayout20"
-                    app:layout_constraintStart_toStartOf="@+id/constraintLayout20"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout20">
-
-                    <com.google.android.gms.maps.MapView
-                        android:id="@+id/nMapViewActivity"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:visibility="gone" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/constraintLayout7"
-                    android:layout_width="310dp"
-                    android:layout_height="16dp"
-                    android:layout_marginBottom="10dp"
-                    app:layout_constraintBottom_toTopOf="@+id/constraintLayout20"
-                    app:layout_constraintEnd_toEndOf="@+id/constraintLayout20"
-                    app:layout_constraintStart_toStartOf="@+id/constraintLayout20">
-
-                    <TextView
-                        android:id="@+id/textView27"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Pemberitahuan"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/constraintLayout20"
-                    android:layout_width="310dp"
-                    android:layout_height="107dp"
-                    android:layout_marginTop="50dp"
-                    android:background="@drawable/background_pemberitahuan"
-                    app:layout_constraintEnd_toEndOf="@+id/constraintLayout19"
-                    app:layout_constraintStart_toStartOf="@+id/constraintLayout19"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout19">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="200dp"
-                        android:layout_height="48dp"
-                        android:layout_marginStart="10dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/constraintLayout21"
-                        app:layout_constraintStart_toEndOf="@+id/constraintLayout21"
-                        app:layout_constraintTop_toTopOf="@+id/constraintLayout21">
-
-                        <TextView
-                            android:id="@+id/textView28"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Informasi TPP Anda"
-                            android:textColor="@color/white"
-                            android:textSize="16sp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.0" />
-
-                        <TextView
-                            android:id="@+id/txtTpp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Rp. 0"
-                            android:textColor="@color/white"
-                            app:layout_constraintEnd_toEndOf="@+id/textView28"
-                            app:layout_constraintHorizontal_bias="0.0"
-                            app:layout_constraintStart_toStartOf="@+id/textView28"
-                            app:layout_constraintTop_toBottomOf="@+id/textView28" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/constraintLayout21"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:background="@drawable/speaker"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.08"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraintLayout6"
                     android:layout_width="310dp"
                     android:layout_height="16dp"
@@ -152,7 +61,7 @@
                         app:layout_constraintTop_toTopOf="parent">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/btn_myRiwayatku"
+                            android:id="@+id/btn_myIzin"
                             android:layout_width="40dp"
                             android:layout_height="40dp"
                             android:layout_marginEnd="10dp"
@@ -169,6 +78,7 @@
                             android:layout_height="40dp"
                             android:layout_marginEnd="10dp"
                             android:background="@drawable/settings_500px"
+                            android:visibility="gone"
                             app:layout_constraintBottom_toBottomOf="@+id/btn_LogOut"
                             app:layout_constraintEnd_toStartOf="@+id/btn_LogOut"
                             app:layout_constraintTop_toTopOf="@+id/btn_LogOut">
@@ -188,9 +98,9 @@
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:id="@+id/constraintLayout9"
-                            android:layout_width="150dp"
+                            android:layout_width="50dp"
                             android:layout_height="match_parent"
-                            android:background="@drawable/logo"
+                            android:background="@drawable/torajaku"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -257,7 +167,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="45dp"
-                    android:layout_marginTop="85dp"
+                    android:layout_marginTop="90dp"
                     android:layout_marginEnd="45dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -266,7 +176,7 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/constraintLayout2"
                         android:layout_width="match_parent"
-                        android:layout_height="120dp"
+                        android:layout_height="300dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
@@ -274,10 +184,12 @@
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:id="@+id/constraintLayout3"
                             android:layout_width="140dp"
-                            android:layout_height="match_parent"
+                            android:layout_height="130dp"
                             app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent">
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.100000024">
 
                             <ImageButton
                                 android:id="@+id/btn_Check_in"
@@ -302,13 +214,11 @@
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="140dp"
-                            android:layout_height="match_parent"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="1.0"
-                            app:layout_constraintStart_toEndOf="@+id/constraintLayout3"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="1.0">
+                            android:layout_height="130dp"
+                            android:layout_marginTop="20dp"
+                            app:layout_constraintEnd_toEndOf="@+id/constraintLayout3"
+                            app:layout_constraintStart_toStartOf="@+id/constraintLayout3"
+                            app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
 
                             <ImageButton
                                 android:id="@+id/btn_CheckOut"
@@ -330,79 +240,20 @@
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toBottomOf="@+id/btn_CheckOut" />
                         </androidx.constraintlayout.widget.ConstraintLayout>
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="120dp"
-                        android:layout_marginTop="24dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
-                        app:layout_constraintVertical_bias="1.0">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/constraintLayout4"
-                            android:layout_width="140dp"
-                            android:layout_height="match_parent"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent">
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            app:layout_constraintTop_toBottomOf="parent">
 
-                            <ImageButton
-                                android:id="@+id/btn_riwayat"
-                                android:layout_width="90dp"
-                                android:layout_height="96dp"
-                                android:layout_marginTop="4dp"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/btn_riwayat" />
-
-                            <TextView
-                                android:id="@+id/textView10"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Riwayat"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/btn_riwayat" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="140dp"
-                            android:layout_height="match_parent"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="1.0"
-                            app:layout_constraintStart_toEndOf="@+id/constraintLayout4"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.0">
-
-                            <ImageButton
-                                android:id="@+id/btn_izin"
-                                android:layout_width="90dp"
-                                android:layout_height="96dp"
-                                android:layout_marginTop="4dp"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/btn_izin" />
-
-                            <TextView
-                                android:id="@+id/textView11"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="4dp"
-                                android:text="Izin"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintHorizontal_bias="0.505"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/btn_izin" />
+                            <com.google.android.gms.maps.MapView
+                                android:id="@+id/nMapViewActivity"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:visibility="gone" />
                         </androidx.constraintlayout.widget.ConstraintLayout>
                     </androidx.constraintlayout.widget.ConstraintLayout>
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout

@@ -1,6 +1,5 @@
 package com.example.smart_absensi;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -46,14 +45,14 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import com.example.smart_absensi.Model.Tpp;
 
-public class CheckInNow extends AppCompatActivity {
 
+public class ChckOutNow extends AppCompatActivity {
     private static final int REQUEST_CAMERA = 1888;
     private static final int CAMERA_REQUEST = 1;
     private static final int REQUEST_PICK_FOTO = 2;
     private static final int REQUEST_WRITE_PERMISION = 786;
     ImageView imgGMB;
-    Button btn_ambilGambar,btn_chckInNow;
+//    Button btn_ambilGambar,btn_chckInNow;
     ApiInterface apiInterface;
     Bitmap bitmap;
 
@@ -64,19 +63,16 @@ public class CheckInNow extends AppCompatActivity {
     Calendar c = Calendar.getInstance();
     SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmmss");
     final String formattedDate = df.format(c.getTime());
-    SimpleDateFormat dfku = new SimpleDateFormat("HH:mm:ss");
-    final String formattedDateku = dfku.format(c.getTime());
 //    String file_path = Environment.getExternalStorageDirectory()
 //            + "/"+formattedDate+".png";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_check_in_now);
-        imgGMB = findViewById(R.id.img_gambar);
-
+        setContentView(R.layout.activity_chck_out_now);
         Intent data = getIntent();
+
+        imgGMB = findViewById(R.id.img_gambar2);
 
         nip = data.getStringExtra("nip");
         nama = data.getStringExtra("nama");
@@ -91,19 +87,18 @@ public class CheckInNow extends AppCompatActivity {
         tpp = data.getStringExtra("tpp");
         chck = data.getStringExtra("chekOut");
 
+//        Toast.makeText(ChckOutNow.this, "Data : "+jamKeluar+keterangan+tanggal, Toast.LENGTH_SHORT).show();
+
         imgGMB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(intent, REQUEST_CAMERA);
-
+                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivityForResult(intent, REQUEST_CAMERA);
             }
         });
 
-//        Toast.makeText(this, "Text : "+nip+" "+jamKeluar+" "+tanggal +keterangan, Toast.LENGTH_LONG).show();
     }
-
-    @Override
+     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -113,9 +108,9 @@ public class CheckInNow extends AppCompatActivity {
                 Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
                 ByteArrayOutputStream bytes = new ByteArrayOutputStream();
                 thumbnail.compress(Bitmap.CompressFormat.PNG, 90, bytes);
-
                 String file_path = Environment.getExternalStorageDirectory()
             + "/"+nip+formattedDate+".png";
+
                 File f = new File(file_path);
                 try {
                     f.createNewFile();
@@ -153,38 +148,33 @@ public class CheckInNow extends AppCompatActivity {
                             RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-file"), f);
                             MultipartBody.Part partImage = MultipartBody.Part.createFormData("image", f.getAbsolutePath(), requestBody);
                             apiInterface = APIClient.getClient().create(ApiInterface.class);
-                            Call<Absen> absen = apiInterface.AbsenResponse(
+                            Call<Absen> absen = apiInterface.absenUpdate(
                                     RequestBody.create(MediaType.parse("text/plain"), nip)
-                                    , RequestBody.create(MediaType.parse("text/plain"), nama)
-                                    , RequestBody.create(MediaType.parse("text/plain"), jabatan)
-                                    , RequestBody.create(MediaType.parse("text/plain"), ruangan)
-                                    , RequestBody.create(MediaType.parse("text/plain"), latitude)
-                                    , RequestBody.create(MediaType.parse("text/plain"), longitude)
-                                    , RequestBody.create(MediaType.parse("text/plain"), jamMasuk)
+                                    , RequestBody.create(MediaType.parse("text/plain"), jamKeluar)
                                     , RequestBody.create(MediaType.parse("text/plain"), tanggal)
                                     , RequestBody.create(MediaType.parse("text/plain"), keterangan)
-                                    , RequestBody.create(MediaType.parse("text/plain"), tpp)
                                     , partImage);
                             absen.enqueue(new Callback<Absen>() {
                                 @Override
                                 public void onResponse(Call<Absen> call, Response<Absen> response) {
                                     if (response.body() != null && response.isSuccessful()) {
-                                        if (response.body().isStatus() == true) {
-                                            Intent intent = new Intent(CheckInNow.this, SplashAbsen.class);
+                                        if (response.body().isStatus()==true) {
+//                                            Toast.makeText(ChckOutNow.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                                            Intent intent = new Intent(ChckOutNow.this, SplashCheckOut.class);
                                             startActivity(intent);
-                                        } else {
-                                        Toast.makeText(CheckInNow.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
+                                        }else{
+                                            Toast.makeText(ChckOutNow.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                                         }
-                                    } else {
-                                        Toast.makeText(CheckInNow.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
 
+                                    } else {
+//                                        Toast.makeText(ChckOutNow.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                                     }
 
                                 }
 
                                 @Override
                                 public void onFailure(Call<Absen> call, Throwable t) {
-                                    Toast.makeText(CheckInNow.this, t.getLocalizedMessage(), Toast.LENGTH_SHORT);
+                                    Toast.makeText(ChckOutNow.this, t.getLocalizedMessage(), Toast.LENGTH_SHORT);
                                 }
                             });
 
@@ -193,7 +183,7 @@ public class CheckInNow extends AppCompatActivity {
 
 
               }else {
-                Intent intent = new Intent(CheckInNow.this,CheckInNow.class);
+                Intent intent = new Intent(ChckOutNow.this,ChckOutNow.class);
                 startActivity(intent);
                 }
             }catch (Exception e){
@@ -204,31 +194,13 @@ public class CheckInNow extends AppCompatActivity {
 
         }
         else{
-            Intent intent = new Intent(CheckInNow.this,CheckInNow.class);
+            Intent intent = new Intent(ChckOutNow.this,CheckInNow.class);
             startActivity(intent);
         }
     }
 
 
-        private void TppPegawai(String nip, String tpp) {
-            apiInterface = APIClient.getClient().create(ApiInterface.class);
-            Call<Tpp> UpdateTpp = apiInterface.UpdateTpp(nip, tpp);
-            UpdateTpp.enqueue(new Callback<Tpp>() {
-                @Override
-                public void onResponse(Call<Tpp> call, Response<Tpp> response) {
-
-                }
-
-                @Override
-                public void onFailure(Call<Tpp> call, Throwable t) {
-
-                }
-            });
-        }
-
-
-
-    public Uri getOutputMediaFileUri() {
+     public Uri getOutputMediaFileUri() {
         return Uri.fromFile(getOutputMediaFile());
     }
 
@@ -252,6 +224,5 @@ public class CheckInNow extends AppCompatActivity {
 
         return mediaFile;
     }
-
 
 }

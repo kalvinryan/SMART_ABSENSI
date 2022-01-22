@@ -24,10 +24,10 @@ public interface ApiInterface {
             @Field("password") String password
     );
 
+//    @FormUrlEncoded
     @Multipart
     @POST("absen")
     Call<Absen>AbsenResponse(
-
             @Part("nip") RequestBody nip,
             @Part("nama") RequestBody nama,
             @Part("jabatan") RequestBody jabatan,
@@ -37,6 +37,7 @@ public interface ApiInterface {
             @Part("jamMasuk") RequestBody jamMasuk,
             @Part("tanggal") RequestBody tanggal,
             @Part("keterangan") RequestBody keterangan,
+            @Part("tpp") RequestBody tpp,
             @Part MultipartBody.Part image
             );
 
@@ -54,14 +55,19 @@ public interface ApiInterface {
             @Field("keterangan") String keterangan
             );
 
-    @FormUrlEncoded
-    @PUT("absen")
+    @Multipart
+    @POST("chckout")
     Call<Absen>absenUpdate(
-            @Field("nip") String nip,
-            @Field("jamKeluar") String jamKeluar,
-            @Field("tanggal") String tanggal,
-            @Field("keterangan") String keterangan
+            @Part("nip") RequestBody nip,
+            @Part("jamKeluar") RequestBody jamKeluar,
+            @Part("tanggal") RequestBody tanggal,
+            @Part("keterangan") RequestBody keterangan,
+            @Part MultipartBody.Part image2
     );
+
+    @GET("libur")
+    Call<Absen>getabsenlibur(
+            );
 
     @GET("absen")
     Call<Absen>getabsenHadir(

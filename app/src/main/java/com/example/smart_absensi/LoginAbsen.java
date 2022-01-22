@@ -60,6 +60,7 @@ public class LoginAbsen extends AppCompatActivity implements View.OnClickListene
             @Override
             public void onResponse(Call<Login> call, Response<Login> response) {
                 if (response.body() !=null && response.isSuccessful()){
+
                     sessionManager = new SessionManager(LoginAbsen.this);
                     LoginData loginData = response.body().getLoginData();
                     sessionManager.createLoginSession(loginData);
