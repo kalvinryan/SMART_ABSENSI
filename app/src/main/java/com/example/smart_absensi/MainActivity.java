@@ -368,7 +368,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                     Calendar T = Calendar.getInstance();
                                     SimpleDateFormat dT = new SimpleDateFormat("yyyy-MM-dd");
                                     String formattedT = dT.format(T.getTime());
-                                    String mytime = new SimpleDateFormat("HH:mm: ss", Locale.getDefault()).format(new Date());
+                                    String mytime = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date());
                                     nip = sessionManager.getUserDetail().get(SessionManager.NIP);
                                     jamKeluar = mytime;
                                     tanggal = formattedT;

@@ -26,7 +26,7 @@ public interface ApiInterface {
 
 //    @FormUrlEncoded
     @Multipart
-    @POST("absen")
+    @POST("chckin")
     Call<Absen>AbsenResponse(
             @Part("nip") RequestBody nip,
             @Part("nama") RequestBody nama,
@@ -36,8 +36,6 @@ public interface ApiInterface {
             @Part("longitude") RequestBody longitude,
             @Part("jamMasuk") RequestBody jamMasuk,
             @Part("tanggal") RequestBody tanggal,
-            @Part("keterangan") RequestBody keterangan,
-            @Part("tpp") RequestBody tpp,
             @Part MultipartBody.Part image
             );
 

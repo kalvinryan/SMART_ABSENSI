@@ -86,6 +86,8 @@ public class ChckOutNow extends AppCompatActivity {
         keterangan = data.getStringExtra("keterangan");
         tpp = data.getStringExtra("tpp");
         chck = data.getStringExtra("chekOut");
+        Toast.makeText(this, "Jam keluar "+jamKeluar, Toast.LENGTH_SHORT).show();
+
 
 //        Toast.makeText(ChckOutNow.this, "Data : "+jamKeluar+keterangan+tanggal, Toast.LENGTH_SHORT).show();
 
@@ -109,9 +111,9 @@ public class ChckOutNow extends AppCompatActivity {
                 ByteArrayOutputStream bytes = new ByteArrayOutputStream();
                 thumbnail.compress(Bitmap.CompressFormat.PNG, 90, bytes);
                 String file_path = Environment.getExternalStorageDirectory()
-            + "/"+nip+formattedDate+".png";
-
+                    + "/"+nip+formattedDate+".png";
                 File f = new File(file_path);
+
                 try {
                     f.createNewFile();
                 } catch (IOException e) {
