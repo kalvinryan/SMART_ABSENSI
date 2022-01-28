@@ -9,6 +9,7 @@ import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.location.Location;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -92,12 +94,12 @@ public class SplashAbsen extends AppCompatActivity implements OnMapReadyCallback
                         GeoPoint geoPoint = new GeoPoint(location.getLatitude(), location.getLongitude());
                         LatLng sydney = new LatLng(geoPoint.getLatitude(),geoPoint.getLongitude());
                         nMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-                        nMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+                        nMap.addMarker(new MarkerOptions().position(sydney).icon(BitmapDescriptorFactory.fromResource(R.drawable.user_location_40px)));
                         nMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney,20));
 
-                        String Latlang = "Latitude " + geoPoint.getLatitude() + "| Longitude " + geoPoint.getLatitude();
+//                        String Latlang = "Latitude " + geoPoint.getLatitude() + "| Longitude " + geoPoint.getLatitude();
 
-                        Toast.makeText(SplashAbsen.this, Latlang, Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(SplashAbsen.this, Latlang, Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(SplashAbsen.this, "Location Is Null", Toast.LENGTH_SHORT).show();
 
@@ -119,7 +121,7 @@ public class SplashAbsen extends AppCompatActivity implements OnMapReadyCallback
     }
 
     private void addMarker(LatLng latLng){
-        MarkerOptions markerOptions = new MarkerOptions().position(latLng);
+        MarkerOptions markerOptions = new MarkerOptions().position(latLng).icon(BitmapDescriptorFactory.fromResource(R.drawable.home_address_40px));
         nMap.addMarker(markerOptions);
     }
 

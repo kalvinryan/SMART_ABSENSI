@@ -86,7 +86,7 @@ public class ChckOutNow extends AppCompatActivity {
         keterangan = data.getStringExtra("keterangan");
         tpp = data.getStringExtra("tpp");
         chck = data.getStringExtra("chekOut");
-        Toast.makeText(this, "Jam keluar "+jamKeluar, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Jam keluar "+jamKeluar, Toast.LENGTH_SHORT).show();
 
 
 //        Toast.makeText(ChckOutNow.this, "Data : "+jamKeluar+keterangan+tanggal, Toast.LENGTH_SHORT).show();
@@ -161,15 +161,16 @@ public class ChckOutNow extends AppCompatActivity {
                                 public void onResponse(Call<Absen> call, Response<Absen> response) {
                                     if (response.body() != null && response.isSuccessful()) {
                                         if (response.body().isStatus()==true) {
-//                                            Toast.makeText(ChckOutNow.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(ChckOutNow.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                                             Intent intent = new Intent(ChckOutNow.this, SplashCheckOut.class);
                                             startActivity(intent);
+                                            finish();
                                         }else{
                                             Toast.makeText(ChckOutNow.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                                         }
 
                                     } else {
-//                                        Toast.makeText(ChckOutNow.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(ChckOutNow.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                                     }
 
                                 }

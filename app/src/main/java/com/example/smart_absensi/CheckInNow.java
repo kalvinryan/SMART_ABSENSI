@@ -111,7 +111,7 @@ public class CheckInNow extends AppCompatActivity {
                 String file_path = Environment.getExternalStorageDirectory()
             + "/"+nip+formattedDate+".png";
                 File f = new File(file_path);
-                    Toast.makeText(this, "Foto : "+f, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(this, "Foto : "+f, Toast.LENGTH_SHORT).show();
                 FileOutputStream fo;
             try {
                 fo = new FileOutputStream(f);
@@ -145,11 +145,12 @@ public class CheckInNow extends AppCompatActivity {
                                         if (response.body().isStatus() == true) {
                                             Intent intent = new Intent(CheckInNow.this, SplashAbsen.class);
                                             startActivity(intent);
+                                            finish();
                                         } else {
                                         Toast.makeText(CheckInNow.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
                                         }
                                     } else {
-                                        Toast.makeText(CheckInNow.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
+                                         Toast.makeText(CheckInNow.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
 
                                     }
 

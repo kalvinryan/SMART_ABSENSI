@@ -26,7 +26,7 @@ public interface ApiInterface {
 
 //    @FormUrlEncoded
     @Multipart
-    @POST("chckin")
+    @POST("ChckIn")
     Call<Absen>AbsenResponse(
             @Part("nip") RequestBody nip,
             @Part("nama") RequestBody nama,
@@ -40,7 +40,7 @@ public interface ApiInterface {
             );
 
     @FormUrlEncoded
-    @POST("sekda")
+    @POST("Sekda")
     Call<Absen>IzinResponse(
             @Field("nip") String nip,
             @Field("nama") String nama,
@@ -54,7 +54,7 @@ public interface ApiInterface {
             );
 
     @Multipart
-    @POST("chckout")
+    @POST("ChckOut")
     Call<Absen>absenUpdate(
             @Part("nip") RequestBody nip,
             @Part("jamKeluar") RequestBody jamKeluar,
