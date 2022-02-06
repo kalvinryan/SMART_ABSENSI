@@ -2,6 +2,11 @@ package com.example.smart_absensi.Model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 public class LoginData {
 
 	@SerializedName("password")
@@ -36,6 +41,15 @@ public class LoginData {
 
 	@SerializedName("tpp")
 	private String tpp;
+
+	@SerializedName("time")
+	private String time;
+
+	private String expired;
+
+	long diffDays,diff;
+
+
 
 	public void setPassword(String password){
 		this.password = password;
@@ -123,5 +137,26 @@ public class LoginData {
 
 	public void setTpp(String tpp) {
 		this.tpp = tpp;
+	}
+
+	public void setExpired(String expired) {
+		this.expired = expired;
+	}
+
+
+	public String getExpired(){
+		Date currentDate = Calendar.getInstance().getTime();
+		String birthDateString="2022/02/06";
+        SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+
+        try {
+            Date birthDate;
+            birthDate = format.parse(birthDateString);
+            diff =  birthDate.getTime()-currentDate.getTime();
+            diffDays = diff / (24 * 60 * 60 * 1000);
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
+		return String.valueOf(diffDays);
 	}
 }

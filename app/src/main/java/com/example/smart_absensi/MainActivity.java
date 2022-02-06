@@ -1,11 +1,9 @@
 package com.example.smart_absensi;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
-import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
@@ -20,7 +18,6 @@ import android.graphics.Color;
 import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
@@ -31,7 +28,7 @@ import android.widget.Toast;
 import com.example.smart_absensi.API.APIClient;
 import com.example.smart_absensi.API.ApiInterface;
 import com.example.smart_absensi.Model.Absen;
-import com.example.smart_absensi.Model.Tpp;
+import com.example.smart_absensi.Model.Expired;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.Geofence;
 import com.google.android.gms.location.GeofencingClient;
@@ -50,8 +47,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.GeoPoint;
 
-import java.sql.Time;
 import java.text.NumberFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -67,6 +64,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ConstraintLayout btn_LogOut, btn_izin;
     TextView txt_Nama, txt_Nip, txt_tanggal, txtHadir, txtSakit, txtIzin, txtAlfa, txt_updateStatus,txtTerlambat;
     SessionManager sessionManager;
+    int myGeofTimer;
     String nip, nama, jabatan, ruangan, Tpp, jamMasuk, jamKeluar, tanggal, keterangan1, keterangan2,stsku;
     private GoogleMap nMap,googleMap;
     private MapView nMapViewActivity;
@@ -83,6 +81,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final int REQUEST_WRITE_PERMISION = 786;
     AlarmManager manager,manager2;
     PendingIntent pendingIntent ,pendingIntent2;
+    long diffDays,diff;
+
+
+
 
 
     @Override
@@ -90,10 +92,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         createNotificatioChanel();
         createNotificatioChanelku();
         startIn();
-
 
 
         Bundle mapViewBundle = null;
@@ -107,15 +109,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        Geofencing
         geofencingClient = LocationServices.getGeofencingClient(this);
         geofenceHelper = new GeofenceHelper(this);
+        Expired expired = new Expired();
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
-
-
 
         sessionManager = new SessionManager(MainActivity.this);
         if (!sessionManager.isLoggedIn()) {
             moveToLogin();
         }
+        myGeofTimer = Integer.parseInt(sessionManager.getExpired());
+        if (myGeofTimer>=0){
+            Toast.makeText(this, expired.getPesan(), Toast.LENGTH_SHORT).show();
+            moveToLogin();
+        }
+
+
 
         Calendar c = Calendar.getInstance();
         System.out.println("Current time => " + c.getTime());
@@ -401,6 +409,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
             case R.id.btn_myIzin:
+                int dataku = Integer.parseInt(sessionManager.getExpired());
+                Log.d(TAG, "onClick: "+dataku);
                 if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                     return;
                 }
@@ -608,6 +618,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             manager.cancel(pendingIntent);
         }
 //        Toast.makeText(this, "Alarm berhenti", Toast.LENGTH_SHORT).show();
+
+    }
+
+    public String getTimer() {
+        Date currentDate = Calendar.getInstance().getTime();
+        String birthDateString="2022/02/06";
+        SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+
+        try {
+            Date birthDate;
+            birthDate = format.parse(birthDateString);
+            diff =  birthDate.getTime()-currentDate.getTime();
+            diffDays = diff / (24 * 60 * 60 * 1000);
+//            Toast.makeText(this, "Hari = " +diffDays, Toast.LENGTH_SHORT).show();
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return String.valueOf(diffDays);
 
     }
 

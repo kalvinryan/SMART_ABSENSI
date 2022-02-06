@@ -29,6 +29,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import com.example.smart_absensi.Model.Absen;
+import com.example.smart_absensi.Model.Expired;
 import com.example.smart_absensi.Model.Tpp;
 
 public class Izin extends AppCompatActivity {
@@ -39,11 +40,13 @@ public class Izin extends AppCompatActivity {
     private EditText btDatePicker,txtnip,txtnama,txtjabatan;
     RadioGroup rb_keterangan;
 //    RadioButton rb_izin,rb_sakit,rb_alfa;
+    int myGeofTimer;
     RadioButton rb_button;
     Button btn_kirim;
     String nip,nama,jabatan,ruangan,latitude,longitude,jamMasuk,tpp;
     ApiInterface apiInterface;
     ImageView btn_back;
+    SessionManager sessionManager;
 
     private void showDateDialog(){
         Calendar newCalendar = Calendar.getInstance();
@@ -66,6 +69,12 @@ public class Izin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_izin);
+        Expired expired = new Expired();
+        sessionManager = new SessionManager(Izin.this);
+        if (!sessionManager.isLoggedIn()) {
+            moveToLogin();
+        }
+
 
         dateFormatter = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
         btDatePicker = findViewById(R.id.txt_dateIzin);
@@ -90,6 +99,11 @@ public class Izin extends AppCompatActivity {
          tpp = data.getStringExtra("tpp");
          String currentTime2 = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date());
          jamMasuk = currentTime2;
+         myGeofTimer = Integer.parseInt(sessionManager.getExpired());
+        if (myGeofTimer>=0){
+            Toast.makeText(this, expired.getPesan(), Toast.LENGTH_SHORT).show();
+            moveToLogin();
+        }
 
          txtnip.setText(nip);
          txtnama.setText(nama);
@@ -175,5 +189,11 @@ public class Izin extends AppCompatActivity {
 
             }
         });
+    }
+    private void moveToLogin() {
+        Intent intent = new Intent(Izin.this, LoginAbsen.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | intent.FLAG_ACTIVITY_NO_HISTORY);
+        startActivity(intent);
+        finish();
     }
 }

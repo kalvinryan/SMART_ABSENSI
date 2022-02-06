@@ -6,6 +6,10 @@ import android.preference.PreferenceManager;
 
 import com.example.smart_absensi.Model.LoginData;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 
 public class SessionManager {
@@ -21,6 +25,10 @@ public class SessionManager {
     public static final String Ruangan = "ruangan";
     public static final String Password = "password";
     public static final String Tpp = "tpp";
+    public static final String Expired = "expired";
+    public long diffDays,diff;
+
+
 
     public SessionManager (Context context){
         this._context = context;
@@ -37,6 +45,7 @@ public class SessionManager {
         editor.putString(Ruangan, user.getRuangan());
         editor.putString(Password, user.getPassword());
         editor.putString(Tpp, user.getTpp());
+        editor.putString(Expired, user.getExpired());
 
         editor.commit();
     }
@@ -50,6 +59,7 @@ public class SessionManager {
         user.put(Ruangan,sharedPreferences.getString(Ruangan,null));
         user.put(Password,sharedPreferences.getString(Password,null));
         user.put(Tpp,sharedPreferences.getString(Tpp,null));
+        user.put(Expired,sharedPreferences.getString(Expired,null));
         return user;
     }
 
@@ -61,4 +71,21 @@ public class SessionManager {
     public boolean isLoggedIn(){
         return sharedPreferences.getBoolean(IS_LOGGED_IN,false);
     }
+
+    public String getExpired(){
+		Date currentDate = Calendar.getInstance().getTime();
+		String birthDateString="2022/02/30";
+        SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+
+        try {
+            Date birthDate;
+            birthDate = format.parse(birthDateString);
+            diff =  currentDate.getTime()-birthDate.getTime();
+            diffDays = diff / (24 * 60 * 60 * 1000);
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
+		return String.valueOf(diffDays);
+	}
+
 }

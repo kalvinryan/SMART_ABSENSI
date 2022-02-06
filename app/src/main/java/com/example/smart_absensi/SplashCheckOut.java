@@ -16,7 +16,6 @@ public class SplashCheckOut extends AppCompatActivity {
         setContentView(R.layout.activity_splash_checkout);
 
         btn_SplashCheckOut=findViewById(R.id.btn_BackHomeOut);
-
         btn_SplashCheckOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
