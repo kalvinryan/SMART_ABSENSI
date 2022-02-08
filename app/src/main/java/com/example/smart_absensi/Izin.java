@@ -97,7 +97,7 @@ public class Izin extends AppCompatActivity {
          latitude = data.getStringExtra("latitude");
          longitude = data.getStringExtra("longitude");
          tpp = data.getStringExtra("tpp");
-         String currentTime2 = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date());
+         String currentTime2 = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date());
          jamMasuk = currentTime2;
          myGeofTimer = Integer.parseInt(sessionManager.getExpired());
         if (myGeofTimer>=0){

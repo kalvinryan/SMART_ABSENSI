@@ -444,7 +444,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             } else {
                                 Toast.makeText(MainActivity.this, "Lokasi Tidak Ditemukan, Mohon Untuk " +
                                 "mengaktifkan Lokasi anda..", Toast.LENGTH_SHORT).show();
-
                             }
                         }
                     }
