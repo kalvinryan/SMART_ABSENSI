@@ -104,7 +104,8 @@ public class SplashAbsen extends AppCompatActivity implements OnMapReadyCallback
     }
 
     private void myGeofence(){
-        LatLng latLng = new LatLng(-2.957739046132328, 119.92355423779769);
+//        LatLng latLng = new LatLng(-2.957739046132328, 119.92355423779769);
+        LatLng latLng = new LatLng(-5.140271167918861, 119.48307553198651);
         addMarker(latLng);
         addCircle(latLng,GEOFENCE_RADIUS);
 

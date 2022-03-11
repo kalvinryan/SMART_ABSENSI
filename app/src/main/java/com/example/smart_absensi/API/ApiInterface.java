@@ -67,7 +67,7 @@ public interface ApiInterface {
     Call<Absen>getabsenlibur(
             );
 
-    @GET("absen")
+    @GET("Absen")
     Call<Absen>getabsenHadir(
             @Query("ruangan")String ruangan,
             @Query("jabatan")String jabatan

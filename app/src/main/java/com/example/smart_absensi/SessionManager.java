@@ -74,7 +74,7 @@ public class SessionManager {
 
     public String getExpired(){
 		Date currentDate = Calendar.getInstance().getTime();
-		String birthDateString="2022/02/30";
+		String birthDateString="2022/03/30";
         SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
 
         try {

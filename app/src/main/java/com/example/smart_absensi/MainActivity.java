@@ -258,8 +258,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 //                                myGeofence();
-                                double lat2 = -2.957745;
-                                double lng2 = 119.923543;
+//                                -5.140244453688017, 119.4832083003521
+//                                double lat2 = -2.957745;
+//                                double lng2 = 119.923543;
+                                double lat2 = -5.140324596357165;
+                                double lng2 = 119.48308626082142;
                                 double lat1 = geoPoint.getLatitude();
                                 double lng1 = geoPoint.getLongitude();
                                 Double pi = 3.14159265358979;
@@ -352,8 +355,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 String latitude = String.valueOf(geoPoint.getLatitude());
                                 String longitude = String.valueOf(geoPoint.getLongitude());
 
-                                double lat2 = -2.957745;
-                                double lng2 = 119.923543;
+//                                double lat2 = -2.957745;
+//                                double lng2 = 119.923543;
+                                double lat2 = -5.140324596357165;
+                                double lng2 = 119.48308626082142;
                                 double lat1 = geoPoint.getLatitude();
                                 double lng1 = geoPoint.getLongitude();
                                 Double pi = 3.14159265358979;
@@ -492,7 +497,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void myGeofence(){
-        LatLng latLng = new LatLng(-2.957639, 119.923510);
+//        LatLng latLng = new LatLng(-2.957639, 119.923510);
+        LatLng latLng = new LatLng(-5.140244453688017, 119.4832083003521);
 //        Toast.makeText(this, "Lat : "+latLng, Toast.LENGTH_SHORT).show();
         addMarker(latLng);
         addCircle(latLng,GEOFENCE_RADIUS);
@@ -622,7 +628,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public String getTimer() {
         Date currentDate = Calendar.getInstance().getTime();
-        String birthDateString="2022/02/06";
+        String birthDateString="2022/03/30";
         SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
 
         try {
@@ -638,8 +644,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return String.valueOf(diffDays);
 
     }
-
-
-
 
 }
